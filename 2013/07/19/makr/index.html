@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Jin&#39;s Blog › 第二篇-markdown简单语法</title>
+  <meta name="author" content="Jin Liu">
+  
+  <meta name="description" content="New Begining!">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="第二篇-markdown简单语法"/>
+  <meta property="og:site_name" content="Jin&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="http://feeds.feedburner.com/willerce" title="Jin&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32857089-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+  <header id="header"><div class="meta inner">
+  <h1><a href="/">Jin&#39;s Blog</a></h1>
+  <h2><a href="/"></a></h2>
+  <nav id="main-nav">
+    <ul>
+      
+      <li><a href="/about">关于我</a></li>
+      
+      <li><a href="/archives">文章归档</a></li>
+      
+      <li><a href="/links">有情链接</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+</div>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      
+  
+    <h1 class="title">第二篇-markdown简单语法</h1>
+  
+
+      
+      <time datetime="2013-07-19T10:49:12.000Z">7月 19 2013</time>
+      
+    </header>
+    <div class="entry">
+      
+        <p>本文参考<a href="http://ghosertblog.github.io/mdeditor" target="_blank" rel="external">Cmd</a>，将平时能用得到的markdown语法以及效果展示出来，可以方便自己平时查阅。</p>
+<h2 id="Markdown简单语法示例：">Markdown简单语法示例：</h2>
+<p><a id="more"></a></p>
+<h4 id="1-将文字放在一对_*_或_**_中间表示斜体或粗体">1.将文字放在一对 * 或 ** 中间表示斜体或粗体</h4>
+<p>示例：</p>
+<p>这是 <em>斜体</em>，这是 <strong>粗体</strong>。</p>
+<h4 id="2-文字下方使用一个以上_=_来表示一级标题，或一个以上_-_来表示二级标题（根据DARING_FIREBALL的文档任意数量的=或-都可以，但是在hexo里面测试需要3个才能出现效果）">2.文字下方使用一个以上 = 来表示一级标题，或一个以上 - 来表示二级标题（根据DARING FIREBALL的文档任意数量的=或-都可以，但是在hexo里面测试需要3个才能出现效果）</h4>
+<p>示例：</p>
+<h1 id="这是一个一级标题">这是一个一级标题</h1>
+<h2 id="这是一个二级标题">这是一个二级标题</h2>
+<h3 id="这是一个三级标题">这是一个三级标题</h3>
+<p>你也可以选择在行首加相应数目的井号表示不同级别的标题，例如：# H1, ## H2, ### H3</p>
+<h4 id="3-使用_[描述](链接地址)_为文字增加外链接">3.使用 [描述](链接地址) 为文字增加外链接</h4>
+<p>示例：</p>
+<p>这是去往<a href="http://ljinliuj.github.io" target="_blank" rel="external">JJLiu的博客</a>的链接。</p>
+<h4 id="4-在行末加两个空格表示换行">4.在行末加两个空格表示换行</h4>
+<p>示例：</p>
+<p>第一行(此行最后有两个空格，直接在文版编辑框内回车不表示markdown效果为换行)<br>第二行</p>
+<h4 id="5-使用_*_,_+_,_-_表示无序列表">5.使用 * , + , - 表示无序列表</h4>
+<p>示例：</p>
+<ul>
+<li>无序列表项 一</li>
+<li>无序列表项 二</li>
+<li>无序列表项 三</li>
+</ul>
+<h4 id="6-使用数字和点表示有序列表">6.使用数字和点表示有序列表</h4>
+<p>示例：</p>
+<ol>
+<li>有序列表项 一</li>
+<li>有序列表项 二</li>
+<li>有序列表项 三</li>
+</ol>
+<h4 id="7-使用_&gt;_表示文字引用">7.使用 &gt; 表示文字引用</h4>
+<p>示例：</p>
+<blockquote>
+<p>黑夜给了我黑色的眼睛，我却用它寻找光明</p>
+</blockquote>
+<h4 id="8-使用`代码`表示行内代码块">8.使用`代码`表示行内代码块</h4>
+<p>示例：</p>
+<p>让我们一起<code>html</code></p>
+<h4 id="9-使用_四个缩进空格_表示代码块">9.使用 四个缩进空格 表示代码块</h4>
+<p>示例：</p>
+<pre><code>这是一个代码块，此行左侧有四个空格
+</code></pre><h4 id="10-使用![描述](图片链接地址)插入图像">10.使用![描述](图片链接地址)插入图像</h4>
+<p>示例：</p>
+<p><img src="http://www.bbgxzx.com/wp-content/uploads/2012/02/p_large_0WmN_2fdd00004f191262.jpg" alt="平衡二叉树"></p>
+<h2 id="Cmd_高阶语法示例">Cmd 高阶语法示例</h2>
+<h4 id="1-LaTeX_公式和表达式的支持（貌似不支持）">1.LaTeX 公式和表达式的支持（貌似不支持）</h4>
+<p>$ 表示行内公式:</p>
+<p>LaTeX格式的质能守恒方程用一个很简单的方程式 $E=mc^2$ 来表示</p>
+<p>$$ 表示整行公式：</p>
+<p>$$\sum_{i=1}^n a_i=0$$</p>
+<p>$$f(x_1,x_x,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2 $$</p>
+<p>$E=mc^2$</p>
+<h4 id="2-加强的代码块，支持四十一种编程语言的语法高亮的显示，行号显示，用一对三个一组的`符号将代码块包含起来">2.加强的代码块，支持四十一种编程语言的语法高亮的显示，行号显示，用一对三个一组的`符号将代码块包含起来</h4>
+<p>非代码示例：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ sudo apt<span class="attribute">-get</span> install git<span class="attribute">-core</span>
+</pre></td></tr></table></figure>
+
+<p>Python示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="decorator">@requires_authorization</span>
+<span class="function"><span class="keyword">def</span> <span class="title">somefunc</span><span class="params">(param1=<span class="string">''</span>,param2=<span class="number">0</span>)</span>:</span>
+	<span class="string">r'''A docstring'''</span>
+	<span class="keyword">if</span> param1 &gt; param2: <span class="comment"># interesting</span>
+		<span class="keyword">print</span> <span class="string">'Greater'</span>
+	<span class="keyword">return</span> (param2 - param1 + <span class="number">1</span>) <span class="keyword">or</span> <span class="keyword">None</span>
+
+<span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span>
+	<span class="keyword">pass</span>
+
+<span class="prompt">&gt;&gt;&gt; </span>message = <span class="string">'''interpreter
+<span class="prompt">... </span>prompt'''</span>
+</pre></td></tr></table></figure>
+
+<p>JavaScript 示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre><span class="comment">/**
+*	nth element in the fibonacci series.
+*	@param n &gt;= 0
+*	@return the nth element, &gt;= 0.
+*/</span>
+
+<span class="function"><span class="keyword">function</span> <span class="title">fib</span><span class="params">(n)</span> {</span>
+	<span class="keyword">var</span> a = <span class="number">1</span>, b = <span class="number">1</span>;
+	<span class="keyword">var</span> tmp;
+	<span class="keyword">while</span> (--n &gt;= <span class="number">0</span>) {
+		tmp = a;
+		a += b;
+		b = tmp;
+	}
+	<span class="keyword">return</span> a;
+}
+
+document.write(fib(<span class="number">10</span>));
+</pre></td></tr></table></figure>
+
+<h4 id="4-表格支持（hexo中貌似支持不够好）">4.表格支持（hexo中貌似支持不够好）</h4>
+<p>三个重要符号为 | - :    ，用 | 画格子竖线，用 - 和 : 指定相应值的对其方式</p>
+<p>示例：</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align:right">价格</th>
+<th style="text-align:center">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>计算机</td>
+<td style="text-align:right">$1600</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td>手机</td>
+<td style="text-align:right">$12</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td>管线</td>
+<td style="text-align:right">$1</td>
+<td style="text-align:center">234</td>
+</tr>
+</tbody>
+</table>
+<h4 id="5-_定义型列表（hexo中貌似无效）">5. 定义型列表（hexo中貌似无效）</h4>
+<p>名词 1<br>:    定义1（左侧有一个可见冒号和四个不可见的空格）</p>
+<p>代码块 2<br>:    这是代码块的定义（左侧有一个可见的冒号和四个不可见的空格）</p>
+<pre><code>    代码块（左侧有八个不可见的空格）
+</code></pre><h3 id="完整版"><a href="www.daringfireball.net/projects/markdown/syntax">完整版</a></h3>
+
+      
+    </div>
+    
+    <footer>
+      <div class="alignleft">
+      
+  
+  <div class="categories">
+    <a href="/categories/web/">web</a>
+  </div>
+
+      
+  
+  <div class="tags">
+    <a href="/tags/markdown/">markdown</a>
+  </div>
+
+      </div>
+      <div class="clearfix"></div>
+    </footer>
+    
+  </div>
+</article>
+
+
+<section id="comment">
+  
+            <!-- Duoshuo Comment BEGIN -->
+            <div class="ds-thread"></div>
+            <script type="text/javascript">
+                var duoshuoQuery = {short_name:"willerce"};
+                (function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';ds.async = true;
+                    ds.src = 'http://static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                })();
+            </script>
+            <!-- Duoshuo Comment END -->
+      
+  
+</section>
+
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div class="inner"><div class="alignleft">
+  <p>
+  
+    &copy; 2014 Jin Liu
+  
+  </p>
+  <p>
+    <a href="http://github.com/willerce/hexo-theme-noderce">Noderce</a> Theme By <a href="http://willerce.com" >willerce</a>
+  </p>
+
+</div>
+<div class="clearfix"></div></div></footer>
+  <script type="text/javascript">
+
+</script>
+
+</body>
+</html>
