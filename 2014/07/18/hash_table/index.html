@@ -87,9 +87,11 @@ Hash Table主要用来在常数平均时间内执行插入（insertions），删
 <li>hash函数需要根据key（通过key计算value存放位置）正确地选择，例如如果hash table大小为10，key都是以0结尾的整数，那么hash函数就不能选择key%10，一般如果key是随机整数，hash为固定大小的数组，则数组大小通常选质数</li>
 <li>如果key为string</li>
 </ul>
-<ol>
-<li>一种方法是将string中的字符对应的ASCII值相加，然后对hash table大小求模，这有一个问题，例如，如果hash table大小太大（如10，007），而所有的string都由不到8个字符组成，这个方法不能在hash table中均匀分布所有的key，因为一个char对应的ASCII值最大为127，8个字符对应的整数值范围为0~1016，明显只占hash table一小部分空间</li>
-</ol>
+<ul>
+<li>一种方法是将string中的字符对应的ASCII值相加，然后对hash table大小求模，这有一个问题，例如，如果hash table大小太大（如10,007），而所有的string都由不到8个字符组成，这个方法不能在hash table中均匀分布所有的key，因为一个char对应的ASCII值最大为127，8个字符对应的整数值范围为0~1016，明显只占hash table一小部分空间</li>
+<li>第二种方法是假设key至少含有两个字符和一个NULL结束符，该方法只检查key的前三个字符，如果key是随机的string，而hash table大小ewing10,007，我们期望key能均匀分布在hash table中，但是由于英文不是完全随机的，尽管在第三个字符不为NULL的情况下，理论上有26的立方==17,576种可能，但是a reasonable large on-line dictionary表明实际上这种组合只有2,851种。即使这些组合经过hash函数计算后都不产生collision，也只有28%的hash table被利用。综上，这种方法虽然计算快，但是这种方法也不适合size比较大的hash table</li>
+<li>第三种方法涉及到key中的所有字符而且能够使得结果均匀分布，方法是string展开为多项式（s[0]<em>x^n+s[1]</em>x^n-1+…+s[0]*x^0，x = 32），利用Horner’s rule求值，然后将值模hash table size得到结果</li>
+</ul>
 
       
     </div>
@@ -105,7 +107,7 @@ Hash Table主要用来在常数平均时间内执行插入（insertions），删
       
   
   <div class="tags">
-    <a href="/tags/Hash,-Algorithm/">Hash, Algorithm</a>
+    <a href="/tags/Hash/">Hash</a>
   </div>
 
       </div>
