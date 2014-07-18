@@ -87,28 +87,16 @@ FFmpeg包含了用途不同的库，包括">
 <li>libswscale            颜色转换和缩放库</li>
 </ul>
 <h2 id="Libavutil"><a href="https://www.ffmpeg.org/libavutil.html" target="_blank" rel="external">Libavutil</a></h2>
-<p>工具库：安全，可移植字符串函数，随机数生成函数，数据结构，数学函数，加密，多媒体相关功能，像素和一些格式的枚举结构<br>特点：</p>
-<pre><code><span class="bullet">+ </span><span class="strong">**Modular**</span>：模块化，库内部功能（我的理解）相互依赖少，可以在./configure中禁用个别功能
-<span class="bullet">+ </span><span class="strong">**Small**</span>：源代码和目标代码都很小
-<span class="bullet">+ </span><span class="strong">**Efficient**</span>：低CPU和内存占用率
-<span class="bullet">+ </span><span class="strong">**Useful**</span>：去除没有用的特性
-</code></pre><h2 id="Libswscale"><a href="https://www.ffmpeg.org/libswscale.html" target="_blank" rel="external">Libswscale</a></h2>
-<p>图像缩放&amp;颜色空间像素格式转换库：高度优化的图像缩放和色彩空间像素格式转换操作库<br>特点：</p>
-<pre><code><span class="bullet">+ </span><span class="strong">**Rescaling**</span>：改变视频尺寸，包括多种尺寸和算法，此操作是有损过程
-<span class="bullet">+ </span><span class="strong">**Pixel format conversion**</span>：转换图像的图像格式和色彩空间，例如：从二维YUV420P到RGB24。该操作也处理包装转换（packet conversion），即从packet layout转换成planar layout（YUV数据主要分为两大类：packed模式和planar模式；packed模式是指Y\U\V颜色分量放置在一起，如YUYV格式，它就是两个相邻像素打包在一起；planar模式是指把Y\U\V颜色分量分成3个大区存放，也就是所有的Y连续储存在一起，同样所有的U和V也连续储存在一起，如I420格式。）
-</code></pre><h2 id="Libswresample"><a href="https://www.ffmpeg.org/libswresample.html" target="_blank" rel="external">Libswresample</a></h2>
-<p>音频重采样库：高度优化的音频重采样（resampling），remaxtrixing和sample格式转换操作<br>特点：</p>
-<pre><code><span class="bullet">+ </span><span class="strong">**Resampling**</span>：改变音频频率，例如，从高的样本平率44100Hz到8000Hz，从高频到低频的转换是一个有损过程，包括多个重采样徐选项和算法
-<span class="bullet">+ </span><span class="strong">**Format conversion**</span>：音频sample的类型转换，例如从16bit有符号的sample到8位无符号sample或者浮点数sample的转换。该操作也处理包装转换（packet conversion，类似视频包装转换）
-<span class="bullet">+ </span><span class="strong">**Rematrixing**</span>：该操作改变声道布局（channle layout）例如从立体声（stereo）到单声道（momo）。当输入声道不能映射到输出流，这个操作是有损的
-<span class="bullet">+ </span><span class="strong">** 多种音频转换操作（stretching，padding）**</span>都有相应实现
-</code></pre><h2 id="Libavcodec"><a href="https://www.ffmpeg.org/libavcodec.html" target="_blank" rel="external">Libavcodec</a></h2>
-<p>音视频字幕编解码库：一般的编解码框架，包括了多种音频，视频，字幕流的编解码工具和一些比特流filter<br>特点：</p>
-<pre><code><span class="addition">+ 适合实现健壮快速地编解码器，也适合用于实验</span>
-</code></pre><h2 id="Libavformat"><a href="https://www.ffmpeg.org/libavformat.html" target="_blank" rel="external">Libavformat</a></h2>
-<p>多路操作库：一般的多路复用（multiplexing）和多路分解（demultiplexing）框架，用来处理视频音频字母混合流，支持多种多媒体容器<br>特点：</p>
-<pre><code><span class="addition">+ 同时支持多种媒体资源输入输出访问权限的协议（不太懂）</span>
-</code></pre><h2 id="Libavdevice"><a href="https://www.ffmpeg.org/libavdevice.html" target="_blank" rel="external">Libavdevice</a></h2>
+<p>工具库：安全，可移植字符串函数，随机数生成函数，数据结构，数学函数，加密，多媒体相关功能，像素和一些格式的枚举结构<br>特点：<br>    <strong>Modular</strong>：模块化，库内部功能（我的理解）相互依赖少，可以在./configure中禁用个别功能<br>    <strong>Small</strong>：源代码和目标代码都很小<br>    <strong>Efficient</strong>：低CPU和内存占用率<br>    <strong>Useful</strong>：去除没有用的特性</p>
+<h2 id="Libswscale"><a href="https://www.ffmpeg.org/libswscale.html" target="_blank" rel="external">Libswscale</a></h2>
+<p>图像缩放&amp;颜色空间像素格式转换库：高度优化的图像缩放和色彩空间像素格式转换操作库<br>特点：<br>    <strong>Rescaling</strong>：改变视频尺寸，包括多种尺寸和算法，此操作是有损过程<br>    <strong>Pixel format conversion</strong>：转换图像的图像格式和色彩空间，例如：从二维YUV420P到RGB24。该操作也处理包装转换（packet conversion），即从packet layout转换成planar layout（YUV数据主要分为两大类：packed模式和planar模式；packed模式是指Y\U\V颜色分量放置在一起，如YUYV格式，它就是两个相邻像素打包在一起；planar模式是指把Y\U\V颜色分量分成3个大区存放，也就是所有的Y连续储存在一起，同样所有的U和V也连续储存在一起，如I420格式。）</p>
+<h2 id="Libswresample"><a href="https://www.ffmpeg.org/libswresample.html" target="_blank" rel="external">Libswresample</a></h2>
+<p>音频重采样库：高度优化的音频重采样（resampling），remaxtrixing和sample格式转换操作<br>特点：<br>    <strong>Resampling</strong>：改变音频频率，例如，从高的样本平率44100Hz到8000Hz，从高频到低频的转换是一个有损过程，包括多个重采样徐选项和算法<br>    <strong>Format conversion</strong>：音频sample的类型转换，例如从16bit有符号的sample到8位无符号sample或者浮点数sample的转换。该操作也处理包装转换（packet conversion，类似视频包装转换）<br>    <strong>Rematrixing</strong>：该操作改变声道布局（channle layout）例如从立体声（stereo）到单声道（momo）。当输入声道不能映射到输出流，这个操作是有损的<br>    <strong> 多种音频转换操作（stretching，padding）</strong>都有相应实现</p>
+<h2 id="Libavcodec"><a href="https://www.ffmpeg.org/libavcodec.html" target="_blank" rel="external">Libavcodec</a></h2>
+<p>音视频字幕编解码库：一般的编解码框架，包括了多种音频，视频，字幕流的编解码工具和一些比特流filter<br>特点：<br>    适合实现健壮快速地编解码器，也适合用于实验</p>
+<h2 id="Libavformat"><a href="https://www.ffmpeg.org/libavformat.html" target="_blank" rel="external">Libavformat</a></h2>
+<p>多路操作库：一般的多路复用（multiplexing）和多路分解（demultiplexing）框架，用来处理视频音频字母混合流，支持多种多媒体容器<br>特点：<br>    同时支持多种媒体资源输入输出访问权限的协议（不太懂）</p>
+<h2 id="Libavdevice"><a href="https://www.ffmpeg.org/libavdevice.html" target="_blank" rel="external">Libavdevice</a></h2>
 <p>多媒体输入输出设备库：一般的常见的多媒体输入输出设备框架，用来向设备抓取或者渲染，支持多种输入输出设备：包括Video4Linux2，VfW，DShow，ALSA等</p>
 <h2 id="Libavfilter"><a href="https://www.ffmpeg.org/libavfilter.html" target="_blank" rel="external">Libavfilter</a></h2>
 <p>filter库：这么一句描述（The libavfilter library provides a generic audio/video filtering framework containing several filters, sources and sinks.），实在看不懂，再看看文档在解释吧</p>
