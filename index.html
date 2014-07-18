@@ -73,25 +73,17 @@
         <p><em>最近在看Data Structures and Algorithm Analysis in C: Second Edition 第五章HASHING，以下记录自己对hash的新的理解</em></p>
 <h1 id="HASHING">HASHING</h1>
 <p>Hash Table主要用来在常数平均时间内执行插入（insertions），删除（deletions），查找（finds）操作，而那些需要任何表中元素排序信息（ordering information）的操作就不支持了，所以类似树的find_min、find_max和按顺序输出整个表的操作都不支持。</p>
-<p>主要需要掌握：<br>&lt;!—more —&gt;</p>
-<ul>
-<li>hash table一些函数的实现</li>
-<li>这些函数的复杂度分析</li>
-<li>一些hash table的应用</li>
-<li>将hash table和binary search trees作比较</li>
-</ul>
-<p><strong>关键点：</strong></p>
-<ul>
-<li>hash函数需要根据key（通过key计算value存放位置）正确地选择，例如如果hash table大小为10，key都是以0结尾的整数，那么hash函数就不能选择key%10，一般如果key是随机整数，hash为固定大小的数组，则数组大小通常选质数</li>
-<li>如果key为string</li>
-</ul>
-<ol>
-<li>一种方法是将string中的字符对应的ASCII值相加，然后对hash table大小求模，这有一个问题，例如，如果hash table大小太大（如10，007），而所有的string都由不到8个字符组成，这个方法不能在hash table中均匀分布所有的key，因为一个char对应的ASCII值最大为127，8个字符对应的整数值范围为0~1016，明显只占hash table一小部分空间</li>
-</ol>
-
+<p>主要需要掌握：<br>
       
     </div>
     
+      
+      <footer>
+        <div class="alignleft">
+          <a href="/2014/07/18/hash_table/#more" class="more-link">Read More ›</a>
+        </div>
+        <div class="clearfix"></div>
+      </footer>
       
     
   </div>
