@@ -92,7 +92,7 @@ Hash Table主要用来在常数平均时间内执行插入（insertions），删
 </ul>
 </li>
 <li>Open Hashing(Separate Chaining)<ul>
-<li>将hash值相同的元素放在一个list链表里面</li>
+<li>将hash值相同的元素（collision）放在一个list链表里面</li>
 <li>Open Hash Table有一个负载参数（load factor， ∧），表示hash表中元素个数跟hash表大小的比，也表示Open Hashing Table中每个值对应链表的平均长度</li>
 <li>Open Hash Table查找一个元素需要常数的时间：hash函数计算时间 + list链表遍历时间</li>
 <li>一次不成功地查找平均需要∧次（包括最后的NULL节点）链表访问，一次成功地查找需要1+（∧/2）次链表访问，1表示至少访问一次链表节点（因为前提是成功的find操作），（∧/2）表示搜索链表的平均次数</li>
