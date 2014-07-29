@@ -99,6 +99,18 @@ Hash Table主要用来在常数平均时间内执行插入（insertions），删
 <li>Open Hash Table的一条通用规则是，尽量是hash表大小跟元素个数一样（另一种表示：尽量使∧ = 1）</li>
 </ul>
 </li>
+<li>Closed Hashing(Open Addressing)<ul>
+<li>某个元素的遇到hash值相同（collision）的情况是，继续计算直到找到没有存放数据的位置（alternate cells）</li>
+<li>计算alternate cells函数为：hi(x) = (hash(x) + f(i))mod H_SIZE, f(0) = 0，f(x)称为碰撞解决策略函数（collision resolution strategy）</li>
+<li>由于每个元素存在表中不同的位置（表中不会有一个位置上出现多个元素的情况），所以通常closed hashing表size会比open hashing大，一般closed hashing的load factor负载参数∧为0.5</li>
+<li>三个碰撞解决策略函数<ul>
+<li>Linear Probing</li>
+<li>Quadratic Probing</li>
+<li>Double Hashing</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
       
