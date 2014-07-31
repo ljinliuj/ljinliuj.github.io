@@ -104,9 +104,23 @@ Hash Table主要用来在常数平均时间内执行插入（insertions），删
 <li>计算alternate cells函数为：hi(x) = (hash(x) + f(i))mod H_SIZE, f(0) = 0，f(x)称为碰撞解决策略函数（collision resolution strategy）</li>
 <li>由于每个元素存在表中不同的位置（表中不会有一个位置上出现多个元素的情况），所以通常closed hashing表size会比open hashing大，一般closed hashing的load factor负载参数∧为0.5</li>
 <li>三个碰撞解决策略函数<ul>
-<li>Linear Probing</li>
+<li>Linear Probing<ul>
+<li>Linear的f(i) = i，可以将散列表看成循环向量，若初始探查位置为d(即hash(key)=d)，则最长的探查序列为（d, d+1, . . . , Table_Size - 1, 0, 1, . . . d-1）</li>
+<li>探查过程分为三种情况：<ul>
+<li>当前探查位置单元为空，则查找失败（对于插入操作，则将key写入该位置）</li>
+<li>当前探查位置含有key，则查找成功（对于插入操作，则插入失败）</li>
+<li>若探查到表的d-1位置上时，仍未发现空单元格也没找到key，则不管是查找还是插入操作，都失败（此时hash表已满）</li>
+</ul>
+</li>
+<li>Linear中有一个问题：primary clustering，意思是即使hash表式相对“空闲”的，但是在从开始插入元素到hash表开始，被占据的表位置形成一个一个的block，这样一个一个block也可以叫做cluster，这样，hash值相同的要插入hash表中的元素，需要进行多次访问表操作才能解决碰撞，然后最后又要加入这个多次尝试的cluster中（cluster越来越大）</li>
+<li>插入操作和失败的查找操作需要的查找的平均次数为1/2 * (1 + 1/(1-∧)2)</li>
+<li>成功地查找操作需要查找的平均次数为1/2 * （1 + 1/(1-∧))    <ul>
 <li>Quadratic Probing</li>
 <li>Double Hashing</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
