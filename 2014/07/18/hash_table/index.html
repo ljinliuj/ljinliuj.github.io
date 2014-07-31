@@ -114,21 +114,11 @@ Hash Table主要用来在常数平均时间内执行插入（insertions），删
 </li>
 <li>Linear中有一个问题：primary clustering，意思是即使hash表式相对“空闲”的，但是在从开始插入元素到hash表开始，被占据的表位置形成一个一个的block，这样一个一个block也可以叫做cluster，这样，hash值相同的要插入hash表中的元素，需要进行多次访问表操作才能解决碰撞，然后最后又要加入这个多次尝试的cluster中（cluster越来越大）</li>
 <li>插入操作和失败的查找操作需要的查找的平均次数为1/2 * (1 + 1/(1-∧)2)</li>
-<li>成功地查找操作需要查找的平均次数为1/2 * （1 + 1/(1-∧))    <ul>
+<li>成功地查找操作需要查找的平均次数为1/2 * （1 + 1/(1-∧))</li>
+</ul>
+</li>
 <li>Quadratic Probing</li>
-</ul>
-</li>
-<li>a<ul>
-<li>b</li>
 <li>Double Hashing</li>
-</ul>
-</li>
-<li>c<ul>
-<li>d</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
