@@ -120,7 +120,8 @@ Hash Table主要用来在常数平均时间内执行插入（insertions），删
 </li>
 <li>Quadratic Probing<ul>
 <li>Quadratic的f(i) = i^2</li>
-<li>类似Linear表，并且比Linear要求更严格，要让hash表相对空闲，而且当hash表一半以上的位置已经插入了元素（或者hash表size不为素数时，可能在不到一半位置被占据的情况下），此时不能保证还能找到空闲的插入位置，因为quadratic的冲突解决函数只能保证最多查找一半的hash表</li>
+<li>类似Linear表，并且比Linear要求更严格，要让hash表相对空闲，而且当hash表一半以上的位置已经插入了元素（或者hash表size不为素数时，可能在不到一半位置被占据的情况下），此时不能保证还能找到空闲的插入位置，因为quadratic的冲突解决函数只能保证（不是说不能查找整个hash表，保证是最低要求）查找一半的hash表（size为素数）<em>(If quadratic probing is used, and the table size is prime, then a new element can always be inserted if the table is at least half empty.)</em>，这个证明需要了解素数的一些理论</li>
+<li>Quadratic解决了primary clustering，但是因为hash值相同的元素还是会在重复的位置上探查，这个问题叫做secondary clustering，它给每次查找带来了额外的1/2此探查（probe）</li>
 </ul>
 </li>
 <li>Double Hashing</li>
