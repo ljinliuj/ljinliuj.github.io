@@ -125,11 +125,32 @@ Hash Table主要用来在常数平均时间内执行插入（insertions），删
 </ul>
 </li>
 <li>Double Hashing<ul>
-<li>to be done</li>
+<li>Double Hashing的f(i) = i * h2(x)，h2(x)是第二个哈希函数，一个差劲的h2(x)会带来糟糕的问题，比如如果h2(x) = x mod 9，那么如果插入99的话是没有用的，所以h2(x)要避免出现0的哈希值</li>
+<li>h2(x) = R - (x mod R)，R是比H_SIZE小的素数，这样的第二个哈希函数比较好</li>
+<li>为了避免prematurely，也就是可选的插入位置过早全部被占，还是建议哈希表大小为素数</li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li>Rehashing<ul>
+<li>如果哈希表太满，操作时间就会变得很长，而且对于quadratic probing模式，插入操作就可能失败（由上可知，当空闲位置少于一半，操作可能失败），这种情况可能发生在删除操作和插入操作混合的情况下</li>
+<li>解决办法是新建一个大小为原来哈希表两倍（选隔得最近的素数）的哈希表，并且重新计算原哈希表中的元素在新哈希表中的位置，并且将他们插入到新表中，这真个操作就是rehashing</li>
+<li>rehashing代价很高，时间复杂度为O(n)</li>
+<li>rehashing的时机：可以是在hash表一半被占据的时候，也可以在当某一次插入操作失败的情况下，或者自己定一个负载指数，当负载超过这个指数，就执行rehashing操作</li>
+<li>rehashing操作可以让programmer不用担心哈希表大小，因为程序员不能定义任意大小的哈希表（初始化的时候，而是动态的增加大小）</li>
+<li>rehashing可以用在如队列等其他数据结构中</li>
+</ul>
+</li>
+<li>Extendible Hashing<ul>
+<li>Extendible Hashing是为了解决hash表太大而不能放进内存的问题</li>
+<li>主要考虑是获得数据需要多少次磁盘访问</li>
+<li>假设存储了n条数据，每个磁盘块最多可以存m条记录</li>
+<li>假设此时用的open hashing或者closed hashing，主要问题是查找操作可能需要访问多个磁盘块。另外，当进行rehashing操作时，将执行O(n)次磁盘访问操作</li>
+<li>对于B-tree，树高为O( logm/2(n) )，我们可以增大m到B-tree的高位1，此时只需进行一次磁盘操作，另外，root节点存放在内存中，但是此时，树高小，分支branching必然就很多了，此时计算数据在哪个叶子节点代价就高了，如果可以减少这个代价，那么就可以在现实中使用了，这就是Extendible Hashing策略</li>
+<li>如果有超过m个重复的元素，那么这个方案就不可行了</li>
+<li>插入的元素最好是随机的，能够均匀占据hash表</li>
 </ul>
 </li>
 </ul>
