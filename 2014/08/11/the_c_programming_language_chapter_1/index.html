@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Jin › The C PROGRAMMING LANGUAGE第一章笔记</title>
+  <meta name="author" content="Jin Liu">
+  
+  <meta name="description" content="在看The C PROGRAMMING LANGUAGE第一章，一下记录一下学习心得
+===ANSI C(American National Standards Institute C)，大部分概念已经清晰，快速阅读，多多记录书中出现的计算机科学中经典的约定俗成的词汇">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="The C PROGRAMMING LANGUAGE第一章笔记"/>
+  <meta property="og:site_name" content="Jin"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Jin" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32857089-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+  <header id="header"><div class="meta inner">
+  <h1><a href="/">Jin</a></h1>
+  <h2><a href="/">Newer@Computer</a></h2>
+  <nav id="main-nav">
+    <ul>
+      
+      <li><a href="/about">关于我</a></li>
+      
+      <li><a href="/archives">文章归档</a></li>
+      
+      <li><a href="/links">相关链接</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+</div>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      
+  
+    <h1 class="title">The C PROGRAMMING LANGUAGE第一章笔记</h1>
+  
+
+      
+      <time datetime="2014-08-11T08:46:38.000Z">8月 11 2014</time>
+      
+    </header>
+    <div class="entry">
+      
+        <p><em>在看The C PROGRAMMING LANGUAGE第一章，一下记录一下学习心得</em></p>
+<p>===<br>ANSI C(American National Standards Institute C)，大部分概念已经清晰，快速阅读，多多记录书中出现的计算机科学中经典的约定俗成的词汇<br><a id="more"></a></p>
+<h2 id="关键点：_"><strong>关键点： </strong></h2>
+<ul>
+<li>ANSI C围绕6种数据类型：int, float, char, short, long, double，衍生出它们的arrays, structures, unions，以及它们的pointers，函数返回以上某些类型</li>
+<li>The <em>for</em> is ususally appropriate for loops in which the initialization and increment are single statements and logically related, since it is more compact than <em>while</em> and it keeps loop control statements together in one place</li>
+<li>magic numbers：记得在看linux文件系统时，看到过这个单词，当时想这个到底是什么number，本书第一章的symblic Constants这一节就介绍了magic number，从本书的天气度量转换的列子看，magic number就是一些让人不是那么容易知道意义的常量而已</li>
+<li>text stream: a sequence of characters divided into lines; each line consists of zero or more characters followed by a newline character.</li>
+<li>newline character: \n( backslash + n)</li>
+<li>EOF 是在<stdio.h>中定义的符号常量（symbolic constant），它的值跟任何一个char的值不同，所以当需要判断字符c是否和EOF相等时，c需要定义成int以便能够存放EOF值</stdio.h></li>
+<li>表达式（expression）是有值的，这样它又可以放入另外一个表达式中；statement就是表达式加分号</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+      <div class="alignleft">
+      
+  
+  <div class="categories">
+    <a href="/categories/language/">language</a>
+  </div>
+
+      
+  
+  <div class="tags">
+    <a href="/tags/language/">language</a>
+  </div>
+
+      </div>
+      <div class="clearfix"></div>
+    </footer>
+    
+  </div>
+</article>
+
+
+<section id="comment">
+  
+            <!-- Duoshuo Comment BEGIN -->
+            <div class="ds-thread"></div>
+            <script type="text/javascript">
+                var duoshuoQuery = {short_name:"jjliu"};
+                (function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';ds.async = true;
+                    ds.src = 'http://static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                })();
+            </script>
+            <!-- Duoshuo Comment END -->
+      
+  
+</section>
+
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div class="inner"><div class="alignleft">
+  <p>
+  
+    &copy; 2014 Jin Liu
+  
+  </p>
+  <p>
+   Theme By <a href="http://www.jjliu.tk" >Jin</a>
+   based on <a href="http://github.com/willerce/hexo-theme-noderce">Noderce</a>
+  </p>
+
+</div>
+<div class="clearfix"></div>
+</div></footer>
+  <script type="text/javascript">
+
+</script>
+
+</body>
+</html>
