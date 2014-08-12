@@ -82,6 +82,12 @@
 <li>newline character: \n( backslash + n)</li>
 <li>EOF 是在<stdio.h>中定义的符号常量（symbolic constant），它的值跟任何一个char的值不同，所以当需要判断字符c是否和EOF相等时，c需要定义成int以便能够存放EOF值</stdio.h></li>
 <li>表达式（expression）是有值的，这样它又可以放入另外一个表达式中；statement就是表达式加分号</li>
+<li><strong>Definition</strong> refers to the place where the variable is created or assigned storage, <strong>declaration</strong> refers to places where the nature of the variable is stated but no storage is allocated</li>
+<li>函数原型/函数声明（function prototype/declaration）</li>
+<li>‘’’<br>  int power(int base, int n);<br>‘’’</li>
+<li>call by value/call by reference</li>
+<li>automatic variables: disappears when function exited; static variables: retain their values between calls; </li>
+<li>external variables: <strong>defined</strong> outside any function and declared in each function that wants to access it(<strong>extern</strong>), the usuall practice is to collect <strong>extern</strong> declaration of variables and <strong>functions(函数名也是变量名)</strong> in a separate file, historically called a <em>header</em></li>
 </ul>
 
       
