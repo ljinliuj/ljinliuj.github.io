@@ -83,7 +83,40 @@ PRIORITY QUEUES
 <li>priority queue的高级实现</li>
 </ul>
 <h2 id="关键点：_"><strong>关键点： </strong></h2>
-<p>priority queue数据结构支持最少如下两种操作：insert和delete_min，delete_min查找返回并且删除队列中的最小元素</p>
+<p>priority queue数据结构支持最少如下两种操作：insert和delete_min，delete_min查找返回并且删除队列中的最小元素，priority queue在操作系统，外排序，贪婪算法（不断寻找最小值）中都很重要</p>
+<ul>
+<li>Binary heap<ul>
+<li>非常常见，通常堆heap就是值得binary heap这种数据结构</li>
+<li>heap有许多属性：如binary search tree就有两个属性：结构属性（structure property），堆顺序属性（heap order property），对于AVL树（一种BST），某个操作可能破坏其中一个属性，所以一个堆操作需要等到堆属性满足时才能结束</li>
+<li>Structure Property<ul>
+<li>堆是这样一种二叉树，除了最底层，每一层都是满的（有足够的节点），最底层从左到右填充节点，这样的二叉树也叫完全二叉树（complete binary tree），高为h（从0开始）的完全二叉树总共的节点数在[2^h, 2^(h+1) - 1]范围内，所以完全二叉树的高为min(log n )，即O(log n)</li>
+<li>完全二叉树可以直接用<em>数组</em>表示，对于数组位置i的元素，其左节点位置为2i，其右节点位置为2i+1，父节点位置为min(i/2)，遍历这种存放结构的对很简单，唯一的问题是需要提前知道堆得最大size</li>
+</ul>
+</li>
+<li>Heap Order Property<ul>
+<li>heap order property允许操作更快速，因为我们需要更快地找到最小元素，所以把最小元素放在根节点是make sense的，如果我们假设子树也是heap，那么任意节点都比其后代要小</li>
+<li>由heap order property，我们知道heap中的每一个节点X，它的父节点都小于X，除了root节点（根节点没有父节点）</li>
+<li>类似的可以建立最大堆（max heap），高效的查找最大元素</li>
+</ul>
+</li>
+<li>Basic Heap Operations<ul>
+<li>要保证堆的两个property</li>
+<li>Insert<ul>
+<li>将元素直接插入数组的下一个可用位置（如果插入其他地方，则不能保证为完全二叉树），如果插入操作没有破坏heap order property，那么操作结束，否则，将该节点的父节点放到该位置（冒泡），新元素的预插入位置变成父节点的位置，重复这个过程，直到该位置满足heap order property，这个策略叫做percolate up（the new element is percolate up the heap until the correct location is found.）。同样，可以用交换swap来完成插入过程，如果元素需要percolate up d层，那么需要3d次赋值操作，但是前面说的那种方法，只需要d+1次赋值操作</li>
+<li>插入操作的时间最多为O(log n)，此时插入的元素为新的最小元素，因此被percolate up到根节点，实际上percolate很快就会终止，书中说每一次insert操作需要2.607次比较，那么根据比较次数d+1可以得到insert操作使元素上升1.607层</li>
+</ul>
+</li>
+<li>Delete_min<ul>
+<li>delete_min操作的处理跟insert操作类似</li>
+<li>删除根节点最小的元素导致根节点位置为空，此时队列最后一个元素必须移动到堆的某个位置（因为数组中存放的堆的元素都是一个一个连着的，这符合完全二叉树的性质，此时数组第一个位置空缺了，于是用最后一个元素补上，而不是用倒数第二个或者第三个等等来填补），于是我们把最后一个元素放到根节点的位置，如果此时满足heap order property，那么操作结束，否则，将根节点子节点中的较小那一个元素放到根节点位置，元素的预插入位置变成该子节点的位置，重复这个过程，直到该位置满足heap order property，这个策略叫做percolate down（the new element is percolate up the heap until the correct location is found.）。同样，不用swap操作，因为用swap操作更耗时。这个策略的思路就是，从根节点到包含新的最小元素的这条路径上寻找最后一个元素可以插入的位置</li>
+</ul>
+</li>
+<li>编程时，插入操作一般数组位置0不用，或者使用一个哨兵（sentinel），该位置存放一个虚数据，该数据小于所有可能的元素；删除操作要注意节点没有右孩子节点的情况，也可以使用一个sentinel，保证任意情况下每个非叶子节点都有连个孩子节点，这都是为了编程方便</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
