@@ -131,9 +131,21 @@ PRIORITY QUEUES
 </li>
 <li>Build_heap<ul>
 <li>该函数以n个元素为输入，并且将他们放入一个空堆中。显然，这个函数只是进行了n次连续的插入操作。因为插入操作的平均时间为O(1)，最坏情况时间为O(log n)，那么build_heap操作的平均时间为O(n)，最坏情况时间为O(n logn)。由于这个函数很特殊，它没有其他操作干扰，并且我们知道该函数平均时间为线性，所以在合理的情况下，可以保证线性时间限制</li>
-<li>另一种实现为将n个元素任意插入array中，保持structure property。然后从第一个非叶子节点（位置为n/2，最后一个节点的父节点）到root节点，执行percolate_down操作，最后将完成建堆操作，复杂度待写</li>
+<li>另一种实现为将n个元素任意插入array中，保持structure property。然后从第一个非叶子节点（位置为n/2，最后一个节点的父节点）到root节点，执行percolate_down操作，最后将完成建堆操作，复杂度不可能超过所有节点的高的和，而所有节点高的和可以证明为n，所以复杂度为O(n)</li>
 </ul>
 </li>
+</ul>
+</li>
+<li>Application of Priority Queues<ul>
+<li>Priority queues在操作系统设计中有应用，同时在一些图算法中也有应用</li>
+<li>The Selection Problem<ul>
+<li>从无序队列中找到第K大得元素</li>
+<li>为了说明简，在堆得操作中，假设寻找第K小的元素</li>
+<li>第一种算法，结合堆的操作，build_heap和k个delete_min，build_heap复杂度为O(n)，k个delete_min复杂度为O(k<em>log n)，如果k = O(n/logn)，那么时间复杂度就由build_heap操作决定，因此复杂度为O(n)，如果k更大，那么复杂度为O(k</em>log n)，当k=┌n/2┐时，复杂度为Θ(n<em>log n)，如果k=n，并且我们将记录从堆中删除的数据，那么我们就可以得到一个排序好的数组，时间复杂度为O(n </em> log n)，对这个思想优化可以得到heapsort这个算法</li>
+<li>第二种算法，首先建立一个大小为K的集合（堆）S，然后一次读取一个元素，跟S中最小的元素比较，如果新比这个最小的元素大，那么新元素替代最小的元素，然后调整堆。时间复杂度：首先建立大小为K的堆，复杂度为O(k)，然后对于剩下的n-k个元素插入到堆中，那么复杂度为O((n-k)log k)，所以时间复杂度为O(k + (n-k)logn) = O(n*log k)</li>
+</ul>
+</li>
+<li>Event Simulation</li>
 </ul>
 </li>
 </ul>
