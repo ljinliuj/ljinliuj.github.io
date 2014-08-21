@@ -148,6 +148,41 @@ PRIORITY QUEUES
 <li>Event Simulation</li>
 </ul>
 </li>
+<li>d-Heaps<ul>
+<li>2分堆的变种d-Heap，每个节点有d个孩子节点</li>
+<li>d-Heap比2分堆要浅，插入操作时间复杂度为O(log(d) N)，但是delete_min操作的时间复杂度没有降低，因为percolate down时，需要找到孩子节点中最小的那个，这样需要进行d-1次比较，所以时间复杂度变为O(dlog(d) N)。如果d为常数，那么时间复杂度为O(log N)</li>
+<li>d-Heap寻找孩子节点和父节点的乘除操作都是d，这样就增加了时间，因为不能通过移位来作乘除法了。d-Heap在理论界有很多研究，因为有很多算法的insert操作要远多于delete_min操作，另外当优先队列太大而不能够放在内存中时，d-Heap也能有用</li>
+</ul>
+</li>
+<li>heap不能进行find操作，因为heap没有全局的排序信息，此外heap没有时间复杂度为O(log n)的merge操作</li>
+<li>Leftist Heaps<ul>
+<li>用array设计数据结构来高效的实现merge很困难，因为光复制一个array到另一个就需要Θ(n)，因此所有支持merge的高级数据结构都用了指针，而指针操作的效率比除以2的效率要低</li>
+<li>同binary heap一样，leftist heap也有structure property和ordering property，事实上leftist heap和几乎所有其他heap都有类似binary heap的ordering property</li>
+<li>leftist heap也是一个binary tree，唯一的区别是leftist并不平衡，而是尽量变得非常不平衡</li>
+<li>Leftist Heap Property<ul>
+<li>npl(x)，从x到任意一个少于两个孩子节点的节点的距离定义为npl，所以任意一个0个或者1和孩子节点的节点的npl为0，npl(NULL)为-1、</li>
+<li>任意节点的npl只比它所有子节点中的最小的npl大1，这对于子节点0个和1个的节点同样适用，因为npl(NULL)等于-1</li>
+<li>Leftist Heap property<ul>
+<li>对于堆中的任意一个节点x，该节点的左孩子节点的npl大于或者等于右孩子节点的npl，这个性质使得树是不平衡的，它让树偏向左边生长（它更适合merge操作）</li>
+</ul>
+</li>
+<li>A leftist tree with r nodes on the right path must have at least 2^r - 1 nodes<br>  根据这个理论，n个节点的leftist tree的右子树最多有└log(n+1)┘个节点，通常所有leftist heap的操作都在右子树上，因为右字数路径短，唯一的棘手的是在右路径上进行insert和merges可能会破坏heap property。但是很容易恢复这个属性</li>
+<li>leftist heap的merge操作<ul>
+<li>leftist最基础的操作就是merge，insertion也是一个特殊的merge操作，因为insert可以看成是merge一个单节点的heap和一个大一点的heap</li>
+<li>如果要merge的两个heap有一个为空，则直接返回非空heap</li>
+<li>否则，merge两个heap，对比它们的根节点，首先递归地合并root值较大的那个heap和root值较小的heap的右子heap，最后将新得到的heap作为原root值较小的heap的右子heap</li>
+<li>merge之后只有root的order property被破坏，所以只需要交换root的左右子树就可以恢复order property，然后修改root的npl值，npl值就是右孩子节点npl值加1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Skew Heaps<ul>
+<li>skew heap是leftist heap自动调节的版本，非常容易实现。skew heap和leftist heap的关系如同splay tree和AVL tree的关系</li>
+</ul>
+</li>
+<li>Binomial Queues</li>
 </ul>
 </li>
 </ul>

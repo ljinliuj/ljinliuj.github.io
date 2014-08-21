@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Jin › Data Structures and Algorithm Analysis in C:Second Edition，电子版 --- 第七章读书笔记</title>
+  <meta name="author" content="Jin Liu">
+  
+  <meta name="description" content="在看Data Structures and Algorithm Analysis in C: Second Edition 第七章SORTING，以下记录自己对SORTING新的理解
+SORTING
+本章主要介绍对一个组元素进行排序，简单起见，假设元素都是整数，并且假设排序能够在内存中完成（内排），不能在内存中完成的排序也非常重要——外排，会在最后一章讲解">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Data Structures and Algorithm Analysis in C:Second Edition，电子版 --- 第七章读书笔记"/>
+  <meta property="og:site_name" content="Jin"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Jin" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32857089-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+
+<body>
+  <header id="header"><div class="meta inner">
+  <h1><a href="/">Jin</a></h1>
+  <h2><a href="/">Newer@Computer</a></h2>
+  <nav id="main-nav">
+    <ul>
+      
+      <li><a href="/about">关于我</a></li>
+      
+      <li><a href="/archives">文章归档</a></li>
+      
+      <li><a href="/links">相关链接</a></li>
+      
+    </ul>
+    <div class="clearfix"></div>
+  </nav>
+</div>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  <div class="post-content">
+    <header>
+      
+  
+    <h1 class="title">Data Structures and Algorithm Analysis in C:Second Edition，电子版 --- 第七章读书笔记</h1>
+  
+
+      
+      <time datetime="2014-08-21T08:07:50.000Z">8月 21 2014</time>
+      
+    </header>
+    <div class="entry">
+      
+        <p><em>在看Data Structures and Algorithm Analysis in C: Second Edition 第七章SORTING，以下记录自己对SORTING新的理解</em></p>
+<h1 id="SORTING">SORTING</h1>
+<p>本章主要介绍对一个组元素进行排序，简单起见，假设元素都是整数，并且假设排序能够在内存中完成（内排），不能在内存中完成的排序也非常重要——外排，会在最后一章讲解<br><a id="more"></a></p>
+<h2 id="主要需要掌握：">主要需要掌握：</h2>
+<ul>
+<li>有一些简单地排序算法，时间复杂度为O(n^2)，比如插入排序</li>
+<li>Shellsort，非常容易实现，时间复杂度为O(n^2)，在实际应用中也很有效</li>
+<li>有一些更复杂的排序算法，时间复杂度为O(n logn)</li>
+<li>所有时间复杂度为Ω(n logn)的通用排序算法的比较</li>
+<li>排序算法中有很多有意思并且重要的代码优化和代码设计的方法，排序算法的分析可以很明确<br><strong>关键点： </strong><br>—</li>
+<li>Preliminaries<ul>
+<li>这里所有描述的排序算法都是可以互换的：所有函数都是传入一个包含所要排序元素的数组，并且和一个代表数组大小的整数</li>
+<li>假设n，传入数组的大小被检查是合法的，某一些算法可能在数组0位置放置一个哨兵（sentinel），我们假设数组位置从0到n，实际存放位置从1开始</li>
+<li>对元素的操作只有’&gt;’，’&lt;’，’=’</li>
+</ul>
+</li>
+<li>Insertion Sort<ul>
+<li>The Algorithm<ul>
+<li>Insertion sort包括n-1步，从p=2到p=n，insertion sort保证位置1到位置p都排好序</li>
+<li>Insertion sort保证从位置1到位置p-1的元素已经排好序</li>
+<li>Insertion sort基本策略是，在第p步，在位置1到p找到第p个元素的正确位置</li>
+<li>实现：array位置0放一个哨兵，值取最小（增序排序），对于第p步，将位置p的元素存放在tmp中，然后所有在位置p前面的比位置p上元素大的元素以此向后移一个位置，最后将tmp放在正确地位置</li>
+</ul>
+</li>
+<li>Analysis of Insertion Sort<ul>
+<li>由于2层嵌套循环，每一层循环迭代n次，所以insertion sort时间复杂度为O(n^2)</li>
+<li>由于该复杂度也是该算法的上限，因为降序的输入就会使得复杂度达到O(n^2)</li>
+<li>另外，当输入是已经排好序的，那么运行时间为O(n)，事实上，如果输入已经块排好序了，那么整个排序很快就会完成</li>
+<li>由于最坏最好情况差别太大，所以需要计算一下平均情况，平均情况为为Θ(n^2)，很多其他排序算法都是如此</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A lower bound for simple<ul>
+<li>Sorting Algorithms<ul>
+<li>inversion：inversion是指，在数组中任意一对元素（i，j）有这样的性质：i<j，但是a[i]> a[j]</j，但是a[i]></li>
+<li>对于insertion sort，inversion的数量等于交换操作执行的次数()，因为一次交换就消除一个inversion</li>
+<li>insertion sort的运行时间为O(I + n)，I是inversion的个数，n表示至少遍历一次数组</li>
+<li>insertion sort的平均时间可以根据inversion的平均个数来计算<ul>
+<li>average的定义<ul>
+<li>没有重复的元素</li>
+<li>由于没有重复元素，假设输入的数组中的元素就是由前n个整数组成的（inversion只跟相对大小有关），n为数组大小，并且每个整数出现的概率相同</li>
+<li>得到平均inversion的个数为n(n - 1)/4<ul>
+<li>证明：对于一个数组L和他的倒序数组Lr，很明显，任意一堆数必在L或在Lr中组成inversion，而且只能在L和Lr中存在一次，而两个数组合起来，总共的inversion为n(n - 1)/2，所以平均个数就为n(n - 1)/4</li>
+</ul>
+</li>
+<li>这说明insertion sort平均时间复杂度为O(n^2）</li>
+<li>也说明只交换相邻元素的排序算法的时间复杂度下限为O(n^2）<ul>
+<li>Any Alogrithm that sorts by exchanging adjacent elements requires Ω(n^2) time on average</li>
+<li>insertion sort通过tmp使用了隐式(implicitly)的swap，因为p位置的元素直接放到最后正确地位置，而不是一个一个和前面的元素交换</li>
+<li>这里所分析的adjacent exchange就是类似insertion sort的交换，所有这一类的排序，如冒泡排序(bubble sort)和选择selection sort，都是这样的交换方式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>这里介绍的下限向我们证明，为了实现时间复杂度低于O(n^2)的排序算法，必须能够比较两个距离很远的元素，并且能够交换它们的位置——这就是改进算法的思路</li>
+<li>那些通过消除inversion的排序算法，为了更高效，则必须通过一次交换能够消除多个inversion</li>
+</ul>
+</li>
+<li>Shellsort</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+      <div class="alignleft">
+      
+  
+  <div class="categories">
+    <a href="/categories/Algorithm/">Algorithm</a>
+  </div>
+
+      
+  
+  <div class="tags">
+    <a href="/tags/sort/">sort</a>
+  </div>
+
+      </div>
+      <div class="clearfix"></div>
+    </footer>
+    
+  </div>
+</article>
+
+
+<section id="comment">
+  
+            <!-- Duoshuo Comment BEGIN -->
+            <div class="ds-thread"></div>
+            <script type="text/javascript">
+                var duoshuoQuery = {short_name:"jjliu"};
+                (function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';ds.async = true;
+                    ds.src = 'http://static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+                })();
+            </script>
+            <!-- Duoshuo Comment END -->
+      
+  
+</section>
+
+</div></div>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div class="inner"><div class="alignleft">
+  <p>
+  
+    &copy; 2014 Jin Liu
+  
+  </p>
+  <p>
+   Theme By <a href="http://www.jjliu.tk" >Jin</a>
+   based on <a href="http://github.com/willerce/hexo-theme-noderce">Noderce</a>
+  </p>
+
+</div>
+<div class="clearfix"></div>
+</div></footer>
+  <script type="text/javascript">
+
+</script>
+
+</body>
+</html>
