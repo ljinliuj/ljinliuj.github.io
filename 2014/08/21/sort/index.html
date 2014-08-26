@@ -205,22 +205,10 @@ SORTING
 <li>正如这个算法的名字，quicksort是实际中已知最快的排序算法，算法平均运行时间为O(nlogn)。这个算法非常快，主要是因为一个紧凑而高度优化的内部循环，在最坏情况下，这个循环的时间复杂度为n^2，但是可以不费力地指数级的降低这种最坏情况的可能。</li>
 <li>Quicksort很容易理解并且证明，尽管很多年，quicksort在理论界被认为是高度优化的算法，但是实际上很难正确地编码实现（由于FORTRAN语言的原因）</li>
 <li>Quicksort类似mergesort，是分治递归算法，quicksort排列一个数组S的四个基本步骤如下：<ul>
-<li><ol>
 <li>如果S中的元素为0个或1个，则返回</li>
-</ol>
-</li>
-<li><ol>
 <li>任选S中的一个元素v，它被叫做pivot（中心点）</li>
-</ol>
-</li>
-<li><ol>
 <li>将S - {v}（S中剩余的元素）分割成两个不想交的集合S1={x ∈ S-{v} ︳x≤v}，S2={x ∈ S-{v} ︳x≥v}</li>
-</ol>
-</li>
-<li><ol>
 <li>返回quicksort(S1)+v+quicksort(S2)</li>
-</ol>
-</li>
 <li>由于第三步分割，对于和中性点pivot相等的元素的处理含糊不清，所以，这个处理就变成了编码时的设计选择。好的实现是尽量高效的处理这种情况。直观地来说，我们可能希望和pivot相等的元素，一半分进S1，而另一半则分进S2，正如我们希望二分查找树平衡一样</li>
 </ul>
 </li>
@@ -281,22 +269,10 @@ SORTING
 <li>A Linear-Expected-Time Algorithm for Selection<ul>
 <li>Quicksort可以被修改用来解决selection问题，我们知道用priority queue可以找到第k大（或小）的元素，并且时间复杂度为O(n + klogn)，如果我们寻找中位数，那么时间复杂度为O(nlogn)</li>
 <li>因为用quicksort可以在O(nlogn)的时间复杂度下排序，我们可以期望能够得到一个更好地解决selection问题，quickselect和quicksort几乎一样，我们假设|Si|表示Si中元素个数，我们要找S中第k小的元素，quickselect的基本步骤为：<ul>
-<li><ol>
 <li>如果|S|=1，而且k=1，那么返回S中的那个元素，如果有CUTOFF，而且|S|≤CUTOFF，那么返回S中的第k个元素</li>
-</ol>
-</li>
-<li><ol>
 <li>选择一个中心点v，v∈S</li>
-</ol>
-</li>
-<li><ol>
 <li>将S - {v}按照quicksort的方式分割成S1和S2</li>
-</ol>
-</li>
-<li><ol>
 <li>如果k≤|S1|，那么第k小的元素肯定在S1中，这种情况下，递归调用并且返回quickselect(S1, k)，如果k=1+|S1|，那么pivot就是第k小的元素，那么我们返回pivot。否则第k小的元素肯定在S2中，那么递归调用并且返回quickselect(S2,k-|S1|-1)，注意这里的quickselect(S2,k-|S1|-1)</li>
-</ol>
-</li>
 </ul>
 </li>
 <li>和quicksort不同的是，在每一次分割后，quickselect只发起一次递归调用，而不是两次</li>
