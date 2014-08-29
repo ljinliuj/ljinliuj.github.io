@@ -8,7 +8,7 @@
   
   <meta name="description" content="在看Data Structures and Algorithm Analysis in C: Second Edition 第八章THE DISJOINT SET ADT，以下记录自己新的理解
 THE DISJOINT SET ADT
-本章主要介绍了">
+本章主要描述了一个用来解决等价性问题的高效数据结构。这个数据结构很容易实现，只需要简单运用数组array，这个实现非常地快：只需要常数平均时间复杂度来完成每次操作。从理论界的观点看，这个数据结构也很有意思，因为对于它的分析极度困难，最坏情况下的函数形式和我们以往见到的都不同。对于disjoint set ADT，">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -75,12 +75,15 @@ THE DISJOINT SET ADT
       
         <p><em>在看Data Structures and Algorithm Analysis in C: Second Edition 第八章THE DISJOINT SET ADT，以下记录自己新的理解</em></p>
 <h1 id="THE_DISJOINT_SET_ADT">THE DISJOINT SET ADT</h1>
-<p>本章主要介绍了<br><a id="more"></a></p>
+<p>本章主要描述了一个用来解决等价性问题的高效数据结构。这个数据结构很容易实现，只需要简单运用数组array，这个实现非常地快：只需要常数平均时间复杂度来完成每次操作。从理论界的观点看，这个数据结构也很有意思，因为对于它的分析极度困难，最坏情况下的函数形式和我们以往见到的都不同。对于disjoint set ADT，<br><a id="more"></a></p>
 <h2 id="主要需要掌握：">主要需要掌握：</h2>
 <ul>
-<li>主要掌握</li>
+<li>展示如何用最小代码量来实现它</li>
+<li>通过两个简单地观察，大大增加其运行速度</li>
+<li>分析一个快速实现的复杂度</li>
+<li>一个简单地应用<br><strong>关键点： </strong></li>
 </ul>
-<h2 id="关键点：_"><strong>关键点： </strong></h2>
+<hr>
 <ul>
 <li>Equivalence Relations<ul>
 <li>一个关系R定义于集合S之上：对于任何一对元素（a，b），a，b∈S，aRb为false或者为true，如果aRb为true，那么我们说a和b有关系（a is related to b）</li>
