@@ -6,7 +6,7 @@
   <title>Jin › 第十一篇-Database Management Systems-Part Ⅰ笔记</title>
   <meta name="author" content="Jin Liu">
   
-  <meta name="description" content="在看Database Management Systems: Second Edition 的Part Ⅰ，以下记录自己新的理解
+  <meta name="description" content="在看Database Management Systems: Second Edition 的Part Ⅰ，以下记录自己新的理解char 1
 BASISC
 本章主要内容">
   
@@ -73,13 +73,48 @@ BASISC
     </header>
     <div class="entry">
       
-        <p><em>在看Database Management Systems: Second Edition 的Part Ⅰ，以下记录自己新的理解</em></p>
+        <p><em>在看Database Management Systems: Second Edition 的Part Ⅰ，以下记录自己新的理解</em><br>char 1</p>
 <h1 id="BASISC">BASISC</h1>
-<h2 id="本章主要内容"><strong>本章主要内容</strong></h2>
-<p><a id="more"></a></p>
+<p><strong>本章主要内容</strong></p>
+<h2><a id="more"></a></h2>
 <ul>
-<li>A</li>
-<li>B<br>~  </li>
+<li>INTRODUCTION TO DATABASE SYSTEMS<ul>
+<li>如今，比以前任何时刻，一个机构的成功依赖于它准确即时的获取它运营的数据，有效地操作这些数据，使用它们分析和知道它们的行动的能力，信息高速公路（<em>information superhighway</em>）这类短语变得无处不在，信息处理正迅速变成一个价值数十亿美元的产业</li>
+<li>我们能够利用的数据的数量在爆炸式的增长，将数据作为公司资产已经是被广泛认可的，然而如果没有管理这些大量数据并且从中迅速获得一个相关问题的信息的能力，即使信息数量不断增加，它们也只能让人分心和变成负担，而不是成为公司价值。这一悖论趋势人们寻找日益强大并且灵活的数据管理系统（<em>data management systems</em>）。为了从这些巨大而又复杂的数据集中获得最多价值，用户需要有一些工具来使得数据管理和即时提取有用数据变得简单。否则，获取数据管理数据的开销会远远超过从中获取的价值，这使得数据变成了负担</li>
+<li>数据库（<strong>database</strong>）是数据的集合，通常用来描述一个或者多个相关机构的活动。例如，一个大学数据库可能包括如下信息：<ul>
+<li>实体（<em>entity</em>），如学生，教师，课程和教室</li>
+<li>实体间关系（<em>relationship</em>），如学生入学课程，教师教授课程，课程安排在哪个教室上课等等</li>
+</ul>
+</li>
+<li>数据库管理系统（<em>database management system or DBMS</em>），是用来维护和利用海量数据的软件，而且对于它们的需求和使用在迅速增加。DBMS的替代品是一些特别的方法（ad hoc approach），某一个应用的方法不能使用在其它不同类型的应用上，例如，可以将数据保存在文件中，然后编写特定应用的代码来管理这些数据，数据库的使用有几个非常重要的有点，后面会讲</li>
+<li>总之，数据库管理系统领域是计算机科学的一个缩影，它解决的问题和使用的技术跨度很大，包括编程语言，面向对象，数据结构，算法，理论，并行和分布式系统以及动态编程，在这本书中，我们不能研究数据库管理系统所涉及的各个方面，但是我们需要知道，数据库管理系统是一门非常丰富并且充满活力的学科</li>
+<li>OVERVIEW<ul>
+<li>本书的目的是为了深入介绍数据库管理系统，重点介绍如何在DBMS中组织维护和检索数据，也就是说介绍如何设计数据库（<em>database</em>）和高效的使用DBMS。因此为了更好的利用DBMS，就有必要明白DBMS的工作原理，本书的方法是，重点介绍如何使用DBMS，同时覆盖一些使我们更容易理解数据库设计（<em>design a database</em>）需要理解的DBMS的实现和架构的足够多的细节</li>
+<li>有各种各样的数据库管理系统正在被使用，但是本书专注于关系数据库系统，是到目前为止数据库管理系统中最主要的类型，本书核心章节解决了如下问题：<ul>
+<li>数据库设计（<strong>Database Design</strong>）：用户如何利用保存在DBMS中的数据定义一个（<em>enterprise</em>）企业（如一所大学）。我们需要考虑什么来决定组织存储的数据（2，3，15，16，17章）</li>
+<li>数据分析（<strong>Data Analysis</strong>）：如何通过提交对DBMS中存储的数据的查询来解决企业（<em>enterprise</em>）现实中碰到的问题（4，5，6，23章）</li>
+<li>并发性和鲁棒性（<strong>Concurrency and Robustness</strong>）：DBMS是如何让多个用户同时获取数据，如何在系统出现故障时保护其中的数据（18，19，23章）</li>
+<li>效率和可扩展性（<strong>Efficiency and Scalability</strong>）：DBMS如何存储大型数据集以及解决高效地解决依赖于这些数据的问题（7，8，9，10，11，12，13，14章）</li>
+</ul>
+</li>
+<li>后续章节涵盖了一些重要并且快速发展的主题，如并行和分布式数据库管理系统（<em>parallel and distributed database management</em>），网络数据库（<em>Internet databases</em>），数据仓库（<em>data warehousing</em>）和决策支持的复杂查询（<em>complex query for decision support</em>），数据挖掘（<em>data mining</em>），对象数据库（<em>object databases</em>），空间数据管理（<em>spatial data management</em>）以及面向规则的DBMS扩展（<em>rule-oriented DBMS extensions</em>）</li>
+<li>本章剩下部分，我们会介绍上述问题。1.2节，我们介绍数据库的一些历史，并且讨论现代信息系统中数据库管理系统扮演的角色。1.3节我们指出在DBMS中而不是在文件系统中保存数据的优点，在1.4节讨论用DBMS管理数据的优点，1.5节我们讨论关于一个企业（<em>enterprise</em>）的数据在DBMS中应该如何被组织和存储，用户可以在同组织/企业（<em>organization/enterprise</em>）中的实体和他们的关系一致的层面上来思考这个问题，尽管DBMS最后基本上是按bit来存储数据的。用户认为的数据形式和数据在DBMS中最后的存放形式是通过DBMS的几个抽象级别（<em>levels of abstraction</em>）来桥接的，直观的说，用户可以在一个很高的层次来描述数据和设计数据库，然后通过考虑额外的存储和细节的表达来优化那些描述和设计。1.6节，考虑如何从DBMS中检索数据，高效地解决依赖这些数据的问题的类似技术需求，1.7节提供一个概述，描述DBMS如何支持并发数据访问以及它如何在系统故障是保护存储的数据</li>
+<li>在1.8节我们简单地描述一下DBMS的内部结构，在1.9节提到涉及到开发和使用DBMS的各种不同人群</li>
+<li>A HISTORICAL PERSPECTIVE<ul>
+<li>从早期计算机开始，存储和维护数据就是一个主要的应用程序焦点。最早的一般用途的DBMS由通用电气（<em>General Electric</em>）的查尔斯·巴赫曼（<em>Charles Bachman</em>）在20世纪60年代设计出来，并且被叫做综合数据仓库（<em>Integrated Data Store</em>）。它成为了网络数据模型（<em>network data model</em>）的基础，这个模型由数据系统语言协会（<em>Conference on Data System Languages</em>）标准化并且在20世纪60年代对数据库系统有着强烈的影响。由于他在数据库领域的工作，Bachman是第一位ACM的图灵奖获得者，并且于1973年获得该奖</li>
+<li>20世纪60年代后期，IBM开发了信息管理系统数据库管理系统（<em>Information Management System, IMS DBMS</em>），在许多重要的设施中，它们沿用至今。IMS形成了另一中数据表现框架的基础，叫做分级数据模型（<em>hierarchical data model</em>），同时，机票预订系统SABER由美国航空公司（<em>American Airlines</em>）和IBM联合开发出来，它允许用户通过计算机网络访问相同的数据。有趣的是，SABRE系统如今还在给基于web的旅游服务系统Travelocity提供支持！</li>
+<li>1970年，IBM的圣何塞研究实验室（<em>San Jose Research Laboratory</em>）的Edgar Codd提出了一个新的数据表示框架（<em>data representation framework</em>），叫做关系数据模型（<em>relational data model</em>），它被证明是数据库系统发展的分水岭：它引发了一些基于关系模型的数据库管理系统的迅速发展，以及伴随丰富的理论成果使得这一领域有着坚实的基础。由于他开创性的工作，Codd获得了1981年的图灵奖，数据库系统成熟到成为一个学术科目，关系型DBMS也改变了商业蓝图。它们的优点被广泛认可，并且使用DBMS管理企业数据成为标准惯例</li>
+<li>20世纪80年代，关系模型巩固它的地位主导DBMS的泛型，数据库系统也不断的得到广泛的使用。关系型数据库的SQL查询语言，作为IBM的系统R项目（<em>System R Project</em>）而开发的一部分，成为了标准查询语句。SQL在20世纪80年代后期被标准化，目前的标准SQL-92，被美国国家标准协会（<em>American National Standards Institute</em>）和国际标准化组织（<em>International Standards Organization</em>）采用。可以说，冰法程序设计的最广泛的使用形式是数据库程序的并发执行方式（它叫做事务），用户认为他们编写的程序能够很好地运行，而真正并发的执行用户的那些程序是由DBMS负责。由于在DBMS的事务管理领域的贡献，James Gray获得了1999年的图灵奖</li>
+<li>在20世纪80年代后期以及20世纪90年代，很多领域利用了数据库系统。为了更强大的查询语言和更丰富的数据模型进行了大量的研究，并且重点是支持一个企业（<em>enterprise</em>）各个部分的复杂数据分析。许多产品（例如IBM的DB2，Oracle 8，Informix UDS）扩展了他们的系统，使得新的数据类型，如图像，文本也能够存储，还能够提交更复杂的查询语句，许多供应商都开发了各种专门的系统来创建数据仓库，来整合多个数据库，用来进行更专业的分析</li>
+<li>一个有趣的现象是，一些企业资源管理（<em>Enterprise resource planning ERP</em>）和管理资源规划（<em>Management resource planning MRP</em>）包（<em>package</em>）的出现，它们在DBMS面向应用特征添加了实质性的层，广泛使用的包来自于Baan，Oracle，PeopleSoft，SAP和Sieble。这些包确定一些大量租住都会遇到的常见的任务（例如存货管理，人力资源规划和财务分析），并且提供一个通用的应用层来解决这些任务。数据存储在关系型数据库管理系统中（<em>relational DBMS</em>），并且应用层可以为不同公司定制，相对于为公司从头开始定制应用层，这种方式能够降低总成本。</li>
+<li>最重要的，可能是DBMS遇上了互联网时代（the Internet Age），最初的网站将数据唯一的存储在操作系统文件中，通过WEB浏览器获得的数据使用DBMS来存储变得普及了。查询（<em>query</em>）通过WEB可访问（<em>web-accessible</em>）表格生成，为了便于在浏览器中呈现，查询结果通常使用一种标记语言如HTML来生成。为了使得更加方便和合适地进行Internet开发，所有数据库厂商都在它们的DBMS中增加了相关特性</li>
+<li>随着越来越多的数据以及通过计算机网络越来越容易获取，数据库管理持续保持着它的重要性。今天，这个领域被很多激动人性的愿景所驱动，例如多媒体数据库（<em>multimedia databases</em>），互动视频（<em>interactive video</em>），数字图书馆（<em>digital libraries</em>），一系列科学项目，例如人类基因绘图工作（the human genome mapping effort）和美国宇航局的地球观测系统项目（<em>NASA’s Earth Observation System project</em>），以及企业巩固它们的决策过程（<em>consolidate their decision-making processes</em>）和从它们的数据仓库中挖掘出关于它们商业有用的信息的期望。商业上来说，数据库管理系统代表了最大以及最激烈的细分市场，因此数据库系统的研究能够从多方面得到回报！</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
       
